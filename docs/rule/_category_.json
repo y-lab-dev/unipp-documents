@@ -1,5 +1,6 @@
 {
-  "label": "開発準備",
+  "label": "ルール",
+  "position": 5,
   "link": {
     "type": "generated-index"
   }
