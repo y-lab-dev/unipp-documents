@@ -19,7 +19,7 @@ jobs:
       - name: Build unipp-documents
         working-directory: unipp-documents
         run: |
-          yarn install --frozen-lockfile
+          yarn install
           yarn build
 
       # Popular action to deploy to GitHub Pages:
