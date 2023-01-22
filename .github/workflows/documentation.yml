@@ -17,11 +17,10 @@ jobs:
           node-version: 16.x
           cache: npm
       - name: Build website
-        working-directory: unipp-documents
+        working-directory: /
         run: |
           npm install
           npm run build
-
       # Popular action to deploy to GitHub Pages:
       # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
       - name: Deploy to GitHub Pages
