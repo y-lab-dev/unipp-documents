@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+slug: /tecks
 ---
 
 # unipp で用いられている技術と概要

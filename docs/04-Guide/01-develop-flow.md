@@ -1,6 +1,6 @@
-# github のフロー
+# unipp 開発フロー
 
-ここでは、新機能作成やバグ修正など、コードを書き換えるときからから本番環境にに反映させるまでの手順についてまとめてあります。
+unipp の開発開始から、開発終了までのフロー
 
 ## 0.issue の作成
 
@@ -11,7 +11,7 @@
   ![issue](../assets/issue.png)
 
 - また、右の欄は、Assignees に自分を入れて、Labels に任意のラベルをつけてください。
-  ![issue-right](../assets/right.png)
+  ![issue-right](..//assets/right.png)
   <br/>
 
 ## 1.ブランチを切る
@@ -31,7 +31,7 @@ git refactor -b refactor/topIntroduction
 
 ```
 
-## 2.(ローカルでの作業)
+## 2.ローカルでの作業
 
 自分のローカルで作業をする。このタイミングでは、コード規約や、コンポーネント設計などを考えながら実装を行う。
 
