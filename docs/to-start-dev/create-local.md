@@ -41,14 +41,14 @@ git clone https://github.com/ylab-dev/Unipp.git
 
 VScode>Teriminal でターミナルを開き、以下のコマンドを入力する
 
-```
+```bash
 docker-compose build
 docker-compose run --rm next yarn install
 ```
 
 ## コンテナの立ち上げ
 
-```
+```bash
 docker-compose up
 ```
 
@@ -57,5 +57,5 @@ docker-compose up
 web ブラウザ(google chrome 推奨)上で以下のページにアクセス
 
 ```
-http://localhost:3000/review
+http://localhost:3000/
 ```
