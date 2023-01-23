@@ -1,6 +1,6 @@
 {
-  "label": "ルール",
-  "position": 5,
+  "label": "システム関連",
+  "position": 0,
   "link": {
     "type": "generated-index"
   }

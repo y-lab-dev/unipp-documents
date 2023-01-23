@@ -55,7 +55,7 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "開発用ドキュメント",
+            label: "開発ドキュメント",
           },
           {
             to: "hello",

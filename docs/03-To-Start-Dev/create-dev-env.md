@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# 4. unipp 環境構築手順書
+# step4.unipp 環境構築手順書
 
 unipp の個人開発環境をを構築するための手順書
 

@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # commit メッセージの書き方
 
 commit メッセージはテキトーに書かないでください。
