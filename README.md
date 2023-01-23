@@ -1,41 +1,44 @@
-# Website
+# document-URL
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+> https://y-lab-dev.github.io/unipp-documents/
 
-### Installation
+## 環境構築
 
-```
-$ yarn
-```
+2023 年 1 月段階での実行環境
 
-### Local Development
-
-```
-$ yarn start
+```bash
+node -v
+> v16.14.0
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
+```bash
+yarn -v
+> 1.22.19
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+### step.1
 
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+```bash
+git clone https://github.com/y-lab-dev/unipp-documents.git
 ```
 
-Not using SSH:
+### step.2
+
+```bash
+yarn install
+```
+
+### step.3
 
 ```
-$ GIT_USER=<Your GitHub username> yarn deploy
+yarn start
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+### done
+
+これで、ドキュメントを書き換えられるようになりました。
+後はローカルで作業して、main に PR くれれば ok です。
+
+### デプロイに関して
+
+main にマージされた段階で GitHub Action が走って自動でデプロイされます
