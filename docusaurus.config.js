@@ -14,18 +14,11 @@ const config = {
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
   trailingSlash: false,
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "y-lab-dev", // Usually your GitHub org/user name.
-  projectName: "unipp-documents", // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  organizationName: "y-lab-dev",
+  projectName: "unipp-documents",
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: "ja",
+    locales: ["ja"],
   },
 
   presets: [
@@ -35,16 +28,12 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          routeBasePath: "/",
           editUrl: "https://github.com/y-lab-dev/unipp-documents/tree/main/",
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/y-lab-dev/unipp-documents/tree/main/",
-        },
+        blog: false,
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -56,9 +45,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "My Site",
+        title: "unipp-docs",
         logo: {
-          alt: "My Site Logo",
+          alt: "sentan logo",
           src: "img/logo.svg",
         },
         items: [
@@ -66,10 +55,18 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "ドキュメント",
+            label: "開発用ドキュメント",
           },
           {
-            href: "https://github.com/facebook/docusaurus",
+            to: "hello",
+            docId: "hello",
+            label: "運用ドキュメント",
+            position: "left",
+            // activeBaseRegex: "docs/(next/v8)",
+            targer: "_blank",
+          },
+          {
+            href: "https://github.com/ylab-dev/Unipp",
             label: "GitHub",
             position: "right",
           },
@@ -84,6 +81,19 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "hello",
+        path: "hello",
+        routeBasePath: "hello",
+        // sidebarPath: require.resolve("./sidebars.js"),
+        showLastUpdateAuthor: true,
+        showLastUpdateTime: true,
+      },
+    ],
+  ],
 };
 
 module.exports = config;
