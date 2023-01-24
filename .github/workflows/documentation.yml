@@ -10,27 +10,27 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      # - uses: actions/checkout@v2
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 18
-      #     cache: npm
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: npm
 
-      # - name: Install dependencies
-      #   run: npm install
-      # - name: Build website
-      #   run: npm run build
+      - name: Install dependencies
+        run: npm install
+      - name: Build website
+        run: npm run build
 
-      # - uses: actions/upload-pages-artifact@v1
-      # with:
-      #   path: build
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: build
 
-      - name: Install Prince
-        run: |
-          curl https://www.princexml.com/download/prince-15-ubuntu22.04-amd64.tar.gz -O
-          tar zxf prince-15-ubuntu22.04-amd64.tar.gz
-          cd prince-15-ubuntu22.04-amd64
-          yes "" | sudo ./install.sh
+      # - name: Install Prince
+      #   run: |
+      #     curl https://www.princexml.com/download/prince-15-ubuntu22.04-amd64.tar.gz -O
+      #     tar zxf prince-15-ubuntu22.04-amd64.tar.gz
+      #     cd prince-15-ubuntu22.04-amd64
+      #     yes "" | sudo ./install.sh
 
   deploy:
     name: Deploy to GitHub Pages
@@ -43,29 +43,29 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      # - name: Deploy to GitHub Pages
-      #   id: deployment
-      #   uses: actions/deploy-pages@v1
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
 
-      - name: Install Prince
-        run: |
-          curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
-          tar zxf prince-14.2-linux-generic-x86_64.tar.gz
-          cd prince-14.2-linux-generic-x86_64
-          yes "" | sudo ./install.sh
+      # - name: Install Prince
+      #   run: |
+      #     curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
+      #     tar zxf prince-14.2-linux-generic-x86_64.tar.gz
+      #     cd prince-14.2-linux-generic-x86_64
+      #     yes "" | sudo ./install.sh
 
-      - run: mkdir -p path/pdf
-      - run: sudo apt install language-pack-ja -y
-      - run: sudo localectl set-locale LANG=ja_JP.UTF-8
-      - name: Build PDF
-        run: npx docusaurus-prince-pdf -u https://y-lab-dev.github.io/unipp-documents/ --prince-args="--pdf-lang='ja'"
+      # - run: mkdir -p path/pdf
+      # - run: sudo apt install language-pack-ja -y
+      # - run: sudo localectl set-locale LANG=ja_JP.UTF-8
+      # - name: Build PDF
+      #   run: npx docusaurus-prince-pdf -u https://y-lab-dev.github.io/unipp-documents/ --prince-args="--pdf-lang='ja'"
 
       # - name: Build PDF
       #   run: npx docusaurus-prince-pdf -u ${{ steps.deployment.outputs.page_url }}
 
-      - name: Upload results
-        uses: actions/upload-artifact@v3
-        with:
-          name: result
-          path: pdf/y-lab-dev.github.io-unipp-documents.pdf
-          if-no-files-found: error
+      # - name: Upload results
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: result
+      #     path: pdf/y-lab-dev.github.io-unipp-documents.pdf
+      #     if-no-files-found: error
