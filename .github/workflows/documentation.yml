@@ -25,6 +25,17 @@ jobs:
         with:
           path: build
 
+      - name: Install Prince
+        run: |
+          curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
+          tar zxf prince-14.2-linux-generic-x86_64.tar.gz
+          cd prince-14.2-linux-generic-x86_64
+          yes "" | sudo ./install.sh
+
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: build
+
   deploy:
     name: Deploy to GitHub Pages
     needs: build
@@ -39,3 +50,13 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+
+      - name: Build PDF
+        run: npx docusaurus-prince-pdf -u ${{ steps.deployment.outputs.page_url }}
+
+      - name: Upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: result
+          path: pdf/y-lab-dev.github.io.pdf
+          if-no-files-found: error
