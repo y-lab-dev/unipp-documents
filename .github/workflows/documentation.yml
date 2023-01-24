@@ -77,5 +77,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: result
-          path: pdf/y-lab-dev.github.io.pdf
+          path: ./pdf/y-lab-dev.github.io.pdf
           if-no-files-found: error
