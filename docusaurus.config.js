@@ -48,7 +48,7 @@ const config = {
         title: "unipp-docs",
         logo: {
           alt: "sentan logo",
-          src: "img/logo.svg",
+          src: "img/logo.png",
         },
         items: [
           {
@@ -56,14 +56,6 @@ const config = {
             docId: "intro",
             position: "left",
             label: "開発ドキュメント",
-          },
-          {
-            to: "hello",
-            docId: "hello",
-            label: "運用ドキュメント",
-            position: "left",
-            // activeBaseRegex: "docs/(next/v8)",
-            targer: "_blank",
           },
           {
             href: "https://github.com/ylab-dev/Unipp",
