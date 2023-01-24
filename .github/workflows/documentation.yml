@@ -25,6 +25,13 @@ jobs:
         with:
           path: build
 
+      - name: Install Prince
+        run: |
+          curl https://www.princexml.com/download/prince-15-ubuntu22.04-amd64.tar.gz -O
+          tar zxf prince-15-ubuntu22.04-amd64.tar.gz
+          cd prince-15-ubuntu22.04-amd64
+          yes "" | sudo ./install.sh
+
   deploy:
     name: Deploy to GitHub Pages
     needs: build
@@ -39,13 +46,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-
-      - name: Install Prince
-        run: |
-          curl https://www.princexml.com/download/prince-15-ubuntu22.04-amd64.tar.gz -O
-          tar zxf prince-15-ubuntu22.04-amd64.tar.gz
-          cd prince-15-ubuntu22.04-arm64
-          yes "" | sudo ./install.sh
 
       - name: Build PDF
         run: npx docusaurus-prince-pdf -u ${{ steps.deployment.outputs.page_url }}
