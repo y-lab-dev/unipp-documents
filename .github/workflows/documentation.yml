@@ -65,7 +65,7 @@ jobs:
       #     yes "" | sudo ./install.sh
 
       - name: Build PDF
-        run: npx docusaurus-prince-pdf -u https://docusaurus.io/docs/
+        run: npx docusaurus-prince-pdf -u https://y-lab-dev.github.io/unipp-documents/
 
       # - name: Build PDF
       #   run: npx docusaurus-prince-pdf -u ${{ steps.deployment.outputs.page_url }}
