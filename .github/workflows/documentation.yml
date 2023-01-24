@@ -55,9 +55,10 @@ jobs:
           yes "" | sudo ./install.sh
 
       - run: mkdir -p path/pdf
-      - run: echo $LANG
+      - run: sudo apt install language-pack-ja -y
+      - run: sudo localectl set-locale LANG=ja_JP.UTF-8
       - name: Build PDF
-        run: npx docusaurus-prince-pdf -u https://y-lab-dev.github.io/unipp-documents/ --prince-args="--pdf-lang='ja' --force-identity-encoding"
+        run: npx docusaurus-prince-pdf -u https://y-lab-dev.github.io/unipp-documents/ --prince-args="--pdf-lang='ja'"
 
       # - name: Build PDF
       #   run: npx docusaurus-prince-pdf -u ${{ steps.deployment.outputs.page_url }}
