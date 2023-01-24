@@ -47,12 +47,15 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
 
+      # - name: Build PDF
+      #   run: npx docusaurus-prince-pdf -u ${{ steps.deployment.outputs.page_url }}
+
       - name: Build PDF
-        run: npx docusaurus-prince-pdf -u ${{ steps.deployment.outputs.page_url }}
+        run: docker run --rm -it -v $(pwd)/pdf:/app/pdf openbayes/docusaurus-prince-pdf -u https://docusaurus.io/docs/
 
       - name: Upload results
         uses: actions/upload-artifact@v3
         with:
           name: result
-          path: ./pdf/y-lab-dev.github.io.pdf
+          path: pdf/y-lab-dev.github.io.pdf
           if-no-files-found: error
