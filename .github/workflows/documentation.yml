@@ -57,7 +57,7 @@ jobs:
       - run: mkdir -p path/pdf
 
       - name: Build PDF
-        run: npx docusaurus-prince-pdf -u https://y-lab-dev.github.io/unipp-documents/ --prince-args="--pdf-lang='ja'"
+        run: npx docusaurus-prince-pdf -u https://y-lab-dev.github.io/unipp-documents/ --prince-args="--pdf-lang='ja' --force-identity-encoding"
 
       # - name: Build PDF
       #   run: npx docusaurus-prince-pdf -u ${{ steps.deployment.outputs.page_url }}
