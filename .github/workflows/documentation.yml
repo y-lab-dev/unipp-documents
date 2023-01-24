@@ -55,7 +55,7 @@ jobs:
           yes "" | sudo ./install.sh
 
       - run: mkdir -p path/pdf
-
+      - run: echo $LANG
       - name: Build PDF
         run: npx docusaurus-prince-pdf -u https://y-lab-dev.github.io/unipp-documents/ --prince-args="--pdf-lang='ja' --force-identity-encoding"
 
