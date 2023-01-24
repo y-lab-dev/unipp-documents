@@ -1,28 +1,39 @@
-name: Create pdf
+# name: Create pdf
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install Prince
-        run: |
-          curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
-          tar zxf prince-14.2-linux-generic-x86_64.tar.gz
-          cd prince-14.2-linux-generic-x86_64
-          yes "" | sudo ./install.sh
+# jobs:
+#   build:
+#     name: Build
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Install Prince
+#         run: |
+#           curl https://www.princexml.com/download/prince-14.2-linux-generic-x86_64.tar.gz -O
+#           tar zxf prince-14.2-linux-generic-x86_64.tar.gz
+#           cd prince-14.2-linux-generic-x86_64
+#           yes "" | sudo ./install.sh
 
-      - name: Build PDF
-        run: npx docusaurus-prince-pdf -u https://docusaurus.io/docs/
+#       - name: Build PDF
+#         run: npx docusaurus-prince-pdf -u https://y-lab-dev.github.io/unipp-documents/
 
-      - name: Upload results
-        uses: actions/upload-artifact@v3
-        with:
-          name: result
-          path: pdf/docusaurus.io-docs.pdf
-          if-no-files-found: error
+#       - uses: actions/upload-pages-artifact@v1
+#         with:
+#           path: build
+
+#   deploy:
+#     name: Deploy pdf To Main
+#     needs: build
+#     permissions:
+#       pages: write
+#       id-token: write
+#     steps:
+#       - name: Upload results
+#         uses: actions/upload-artifact@v3
+#         with:
+#           name: result
+#           path: pdf//y-lab-dev.github.io.pdf
+#           if-no-files-found: error
