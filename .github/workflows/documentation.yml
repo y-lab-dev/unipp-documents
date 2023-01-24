@@ -66,5 +66,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: result
-          path: path/pdf/hello.pdf
+          path: pdf/y-lab-dev.github.io-unipp-documents.pdf
           if-no-files-found: error
