@@ -1,5 +1,6 @@
-# 🚫.env
+# .env
 
-参考文献
-・Nuxt.js における env ファイルの利用
-https://qiita.com/fj_yohei/items/c77bff6f0177b4ff219e
+Next.js での env ファイルの扱い方を知りたい時は以下のサイトを参考にするといい
+
+**・.env ファイルの参考サイト** <br/>
+[Next.js における環境変数 (env) の基本的な設定方法](https://fwywd.com/tech/next-env)

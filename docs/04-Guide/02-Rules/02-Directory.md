@@ -1,15 +1,44 @@
-# 🚫 ディレクトリ構造
+# Next.js ディレクトリ構造
 
-Nuxt ディレクトリ構造
-assets・・・コンパイルが行われていない SASS, LESS や Font などを保存
-middleware・・・layout やページがレンダリングする前に実行されるカスタム関数を保存。ユーザ認証などに使うことができます。
-plugins・・・Vue インスタンスが起動する前にロードする JavaScript プラグインを保存
-static・・・robots.text, favicon、画像ファイルを保存されています。もし image.png を保存すると/image.png でアクセスすることが可能です。
-store・・・Vuex Store に関するファイルが保存されています。
-.nuxt・・・コンパイルを実行すると作成されます。
-node_modelues・・・next.js で使われる JavaScript のパッケージが保存されています。
+unipp のディレクトリ構成は以下の通りになっています <br />
+このファイルってなんのためにあるんだっけ？？って時は参考にしてください！
 
-【参考文献】
-Nuxt.js のディレクトリ構造
-https://qiita.com/sychocola1/items/6aa185960a9f4e40d3d0#nuxtのディレクトリ構造
-https://reffect.co.jp/vue/nuxt-js-first-step#Nuxtjs-5
+```
+unipp
+├── docker
+│   └── next
+│       └── Dockerfile *Dockerで作成するコンテナイメージを管理するためのフォルダ*
+│
+├── docker-compose.yml *Dockerアプリケーションを動かすためのアプリケーション*
+│
+└── src
+    ├── components *unippのUIを構成しているコンポーネントを格納している・フォルダ Atomic-designに則っている*
+    │   ├── Layouts
+    │   ├── Molecules
+    │   ├── Organisms
+    │   └── atoms
+    ├── datas *ローカルで保存するデータを保持するフォルダ*
+    │
+    ├── hooks *unippのreact カスタムフックを格納しているフォルダ*
+    │   └── firebase *firebase関連のカスタムフックを格納しているフォルダ*
+    │
+    ├── lib *プログラムのUI以外の部品を格納しているフォルダ*
+    │
+    ├── next.config.js *nextの設定設定ファイル*
+    │
+    ├── pages *実際に表示されているファイルを格納しているるフォルダ*
+    │
+    ├── public *unippのローカルで保持する画像などのファイルを格納するフォルダ*
+    │
+    ├── store *Recoilの記法に沿って書いたファイルを格納するフォルダ*
+    │
+    ├── styles *globalなスタイルを設定するときのフォルダ(基本的には使わない)*
+    │
+    ├── tsconfig.json *TypeScriptの設定ファイル*
+    │
+    ├── types *TypeScriptの型を格納するファイル*
+    │
+    ├── package.json *unippが依存するパッケージに関する情報を記録するのに使用するファイル*
+    │
+    └── yarn.lock *パッケージの正確なバージョンを管理するためのファイル*
+```

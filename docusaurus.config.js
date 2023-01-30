@@ -58,6 +58,13 @@ const config = {
             label: "開発ドキュメント",
           },
           {
+            to: "operations",
+            docId: "operations",
+            label: "運用ドキュメント",
+            position: "left",
+            targer: "_blank",
+          },
+          {
             href: "https://github.com/ylab-dev/Unipp",
             label: "GitHub",
             position: "right",
@@ -77,9 +84,9 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "hello",
-        path: "hello",
-        routeBasePath: "hello",
+        id: "operations",
+        path: "operations",
+        routeBasePath: "operations",
         // sidebarPath: require.resolve("./sidebars.js"),
         showLastUpdateAuthor: true,
         showLastUpdateTime: true,

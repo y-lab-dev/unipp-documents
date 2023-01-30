@@ -1,86 +1,55 @@
-# アトミックデザインについて
+# Atomic design
 
-Atomic Design について
-ページの構成要素は、分解することが出来る。
-例１　ヘッダー　 ⇒ 　ロゴ　ボタン　アイコン　など
-例２　 web ページ　 ⇒ 　ヘッダー　フッター　フォーム　カード など
-例２の web ページは例１のようにさらに小さい部品（Atoms）に分解することが出来る
-つまり、web ページは部品を組み立てて構成していると言える
-その際の部品を
-Atoms（原子）
-Molecules（分子）
-Organisms（有機体）
-Templates（テンプレート）
-Pages（ページ）
-の５つに分類分けをしていきましょうというお話です。
-でも、今回は pages は使いません
-なぜ？
-再利用することが出来る
-コードのメンテナンスがしやすくなる
+unipp の UI 構築の際には、atomic design を利用しています。<br/>
+ここでは、**Atomic design とはなにか？** と、**unipp の Atomic Design のルール**が書いてあります
 
-ディレクトリの構成は以下の様にしていく
-src
-└── components - └── atoms - └── molecules - └── organisms
-└── layouts
-└── pages
+---
 
-![image](_ Atoms)・・・これ以上わけられない単位
-例　ボタン・テキスト入力欄・ボタン・アイコン
-v-text-field v-btn
-![image](_ Molecules)・・・Atoms が複数組み合わさったもの
-例　入力フォーム(ラベル＋入力欄)、
+## Atomic design とは？
 
-![image](_ Organism)・・・一つの明らかな機能をもつ
-例　ヘッダー
-![image](_ Templates)・・・ページの枠組みを構成する
-例　ワイヤーフレーム
-![image](\* Pages)・・・ページにコンテンツをいれたもの
+Web デザイナー Brad Frost 氏が考案・提唱したデザインシステム
 
-**Atom の役割**　　**機能的にそれ以上分解できない**　**再利用性も考慮**
-色・タイポ・ボタン固定文言など
-直接描画要素にデータをレンダリング
-描画要素のイベントを発行
-親要素からのデータ受け取り
-登場箇所がすごく多いのでステートレスを徹底する
-**Store みちゃダメ絶対！**
+ようはパーツ/コンポーネント単位で UI をデザインしていきましょうというデザイン手法です。
 
-**Molecule の役割**　**独立して存在できない　再利用性も考慮する**
-Atom の組み合わせで独立した要素として成立する
-Atom をレイアウト
-色の指定
-状態に応じて Atom のプロパティを変更したり、別な Atom 要素を表示する
-イベントを発行
-Atom のイベントハンドリング
-親要素からのデータ受け取り
-ステートレスが理想、どうしても入るものは吟味する
-**Store みちゃダメ絶対！**
+![Untitled](../../assets/atomic.png)
 
-**Organism の役割**　**独立して存在できる　 store 使っていいよ　再利用性はあまり考慮しなくていい**
-コンテキストが発生するのでその管理を行う
-データは Store から取得できるので props はデータアクセスのためのキーの様なものが望ましい
-Atom や Molecule の配置
-複数の Template から利用されても大丈夫に作る
-固定文言の配置
-文脈に沿った Store へのアクセス
-イベントの発行
-子要素のイベントハンドリング
-親要素からのデータ受け取り(なるべく少ない情報が望ましい)
-子要素のレイアウト
-**Template の役割**
-単体でページとして成立する構成にする
-Atom, molecule, organism をレイアウト
-必要であれば複数の Store へのアクセス
-子要素へのデータバインディング
-画面の状態管理
+もっと知りたい人はこれ 👇 を呼んでもいいかも？ <br/>
+[新しいデザインシステムの手法 Atomic Design とは｜ NEWS ｜株式会社 INDETAIL（インディテール）](https://www.indetail.co.jp/blog/10234/)
 
-Pages は既にディレクトリが存在するのでそちらで・・・（厳密には atomic の pages とは違うんですけど）
+---
 
-データ、イベントの流れ
-[https://gyazo.com/79cc326fa6320dc5cc52225d1877ce3c]
+## Unipp における Atomic design ののルール
 
-[参考文献]
-note におけるフロントエンド開発環境の刷新
-https://logmi.jp/tech/articles/312582
+### Atoms (原子)
 
-Vue.js からみた AtomicDesign
-https://medium.com/@t_sugawara/vue-js-からみた-atomicdesign-e90517842801
+    - 汎用性を考慮
+    - Button, Icon, Text, Title などの小さい単位のコンポーネントを定義する
+    - margin を指定しない
+    - unipp では、chakra-UI が atoms の役割を担っている
+
+### Molecules (分子)
+
+    - 汎用性を考慮
+    - Atoms を組み合わせて作成
+    - margin の指定可能
+    - 外部 API とのやりとりは行ってはいけない
+
+### Organisms (生体)
+
+    - 汎用性を考慮しなくもいい
+    - margin の指定可能
+    - Atoms や Molecules を組み合わせて作成
+    - 外部 API との連携を行っていい
+
+### Layouts(templates の変わり)
+
+    - 汎用性を考慮
+    - 中身の内, pages のレイアウト
+    - ただし、Unipp ではあまり利用しない。
+
+### Pages
+
+    - 汎用性を考慮しない
+    - pages 内の全体的なレイアウト, データ取得や画像取得などのAPIとの連携は基本的にここで行う。
+
+---
