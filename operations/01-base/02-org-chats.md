@@ -7,4 +7,4 @@ unipp の組織体制図について
 unipp の組織体制図は以下の通りである。
 基本的に以下の体制に沿って組織の運用を行っていく
 
-- ![組織図](./../assets/soshikizu.png)
+![組織図](./../assets/soshikizu.png)
