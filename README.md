@@ -1,3 +1,6 @@
+unipp-documentsを書き換えたい場合は、以下のREAD.meを読んでください
+
+
 # document-URL
 
 > https://y-lab-dev.github.io/unipp-documents/
