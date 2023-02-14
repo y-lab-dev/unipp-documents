@@ -19,15 +19,17 @@ https://github.com/y-lab-dev/unipp-documents#readme
 ### ドキュメントを作成・修正する手順
 
 ドキュメントを改定する場合は以下の手順に従ってください。
-新しく作成するのか、修正するのかで issue の書き方が変わります
+新しく作成するのか、修正するのかで issue の書き方が変わります。  
+それ以外は同じ流れです。
 
-1. 新しく書くドキュメントに気付く
-2. [issue](https://github.com/y-lab-dev/unipp-documents/issues)を作成する
+1. 新しく書くドキュメント・作成するドキュメントに気付く
+2. [Issue](https://github.com/y-lab-dev/unipp-documents/issues)を作成する
 
-   > [新規作成時参考 issue](https://github.com/y-lab-dev/unipp-documents/issues/12)  
-   > [修正時参考 issue](https://github.com/y-lab-dev/unipp-documents/issues/11)
+   - [新規作成時参考 Issue](https://github.com/y-lab-dev/unipp-documents/issues/12)
+   - [修正時参考 Issue](https://github.com/y-lab-dev/unipp-documents/issues/11)
 
 3. ローカルでドキュメントを編集する(必ずブランチを切る)
-4. [pullrequesut](_blank)を出す
-   > [新規作成時参考 issue](https://github.com/y-lab-dev/unipp-documents/issues/12)
-5. 自分以外の人にプルリクエストを見てもらってから、main にマージする (自動でデプロイされます)
+4. [Pull Request](https://github.com/y-lab-dev/unipp-documents/compare)を出す
+   1. Assigness に自分を assign する
+   2. 本文に 2 で作成した Issue を紐付ける ([参考 PullRequest](https://github.com/y-lab-dev/unipp-documents/pull/13))
+5. 自分以外の人にレビューもらってから、main にマージする (自動でデプロイされます)
