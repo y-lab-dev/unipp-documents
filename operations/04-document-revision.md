@@ -13,7 +13,7 @@
 
 ### unipp-documents を書き変える方法
 
-以下のリンクにアクセスしてください。unipp-documents をローカルで変更する方法が書かれています。
+以下のリンクにアクセスしてください。unipp-documents をローカルで変更する方法が書かれています。  
 https://github.com/y-lab-dev/unipp-documents#readme
 
 ### ドキュメントを作成・修正する手順
